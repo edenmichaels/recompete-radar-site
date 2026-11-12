@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Weekly email for small US federal janitorial and grounds contractors: contracts ending in 6–18 months with no options left, new set-aside bids and deadlines.">
+<title>Recompete Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field work-order sheet. Hi-vis stripe header, ledger of real expiring contracts as the hero, plain pricing grid. */
+:root {
+  --bg: #eef1ef;
+  --paper: #ffffff;
+  --ink: #16201d;
+  --muted: #5a6762;
+  --line: #d3dad6;
+  --hivis: #e2570f;
+  --grass: #2f6b3a;
+  --hivis-ink: #ffffff;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+    --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+  --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.stripe { height: 10px; background: repeating-linear-gradient(135deg, var(--hivis) 0 18px, var(--ink) 18px 36px); }
+header.top { padding-block: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { font: 800 22px/1 var(--display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; }
+.brand span { color: var(--hivis); }
+.tag { font: 500 12px/1 var(--mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: start; padding-block: 32px 56px; }
+.hero > * { min-width: 0; }
+h1 { font: 800 clamp(34px, 5.4vw, 58px)/1.02 var(--display); font-stretch: 70%; text-transform: uppercase; margin: 0 0 18px; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--hivis); }
+.lede { font-size: 18px; color: var(--muted); max-width: 34em; margin: 0 0 26px; }
+form.signup { display: flex; gap: 8px; flex-wrap: wrap; max-width: 30em; }
+form.signup input { flex: 1 1 220px; min-width: 0; font: inherit; padding: 12px 14px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 2px; }
+button, .btn { font: 700 15px/1 var(--display); font-stretch: 85%; letter-spacing: .04em; text-transform: uppercase; padding: 14px 18px; border: 2px solid var(--ink); background: var(--hivis); color: var(--hivis-ink); border-radius: 2px; cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--grass); outline-offset: 2px; }
+.formnote { font-size: 13px; color: var(--muted); margin: 10px 0 0; min-height: 1.4em; }
+.formnote.ok { color: var(--grass); font-weight: 600; }
+
+.ledger { background: var(--paper); border: 2px solid var(--ink); border-radius: 2px; }
+.ledger-head { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 2px solid var(--ink); font: 500 12px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.row { padding: 14px 16px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+.row:last-child { border-bottom: 0; }
+.row .agency { font-weight: 600; }
+.row .meta { grid-column: 1 / -1; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+.row .scope { grid-column: 1 / -1; font-size: 14px; }
+.left { font: 700 22px/1 var(--display); font-stretch: 75%; color: var(--hivis); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.left small { display: block; font: 500 11px/1.4 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.ledger-foot { padding: 10px 16px; font-size: 12px; color: var(--muted); border-top: 2px solid var(--ink); }
+
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+h2 { font: 800 30px/1.1 var(--display); font-stretch: 75%; text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
+.issue { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.issue div { border-top: 4px solid var(--ink); padding-top: 12px; }
+.issue h3 { font: 700 18px/1.2 var(--display); font-stretch: 85%; margin: 0 0 6px; }
+.issue p { margin: 0; color: var(--muted); font-size: 15px; }
+.step { font: 500 12px/1 var(--mono); color: var(--hivis); letter-spacing: .06em; }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.why p { margin: 0; }
+.why b { display: block; font-family: var(--display); font-stretch: 85%; font-size: 18px; margin-bottom: 4px; }
+
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.plan { background: var(--paper); border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column; gap: 10px; border-radius: 2px; }
+.plan.feature { border: 2px solid var(--hivis); }
+.plan h3 { font: 700 16px/1 var(--display); font-stretch: 85%; text-transform: uppercase; letter-spacing: .04em; margin: 0; }
+.price { font: 800 34px/1 var(--display); font-stretch: 75%; font-variant-numeric: tabular-nums; }
+.price small { font: 500 13px var(--body); color: var(--muted); }
+.plan ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+.flag { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--hivis); }
+
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.faq h3 { font: 600 17px/1.3 var(--body); margin: 0 0 6px; }
+.faq p { margin: 0; color: var(--muted); font-size: 15px; }
+
+footer { padding-block: 32px 48px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); display: grid; gap: 8px; }
+footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
+a { color: inherit; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .issue, .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why, .faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .issue, .plans { grid-template-columns: 1fr; }
+}
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"></div>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Recompete <span>Radar</span></div>
+    <div class="tag">Federal janitorial &amp; grounds · NAICS 561720 / 561730</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>See which federal cleaning and grounds contracts <em>end next</em>, before they're re-bid.</h1>
+      <p class="lede">A 10-minute Monday email for small janitorial, custodial and landscaping contractors. Contracts with no option years left, the incumbent and the value, plus new set-aside bids and deadlines, all from official US government data.</p>
+      <form class="signup" id="signup" novalidate>
+        <label for="email" class="tag" style="flex-basis:100%">Work email</label>
+        <input id="email" name="email" type="email" placeholder="bids@yourcompany.com" autocomplete="email" required>
+        <button type="submit">Get the free weekly top 5</button>
+      </form>
+      <p class="formnote" id="formnote">Free. Unsubscribe from any email.</p>
+    </div>
+
+    <div class="ledger" aria-label="Sample from this week's recompete radar">
+      <div class="ledger-head"><span>Recompete radar · sample</span><span>Week of 9 Nov 2026</span></div>
+      <div class="row">
+        <div class="agency">Dept. of the Interior · Washington, DC</div>
+        <div class="left" data-end="2027-05-13">—<small>months left</small></div>
+        <div class="scope">Landscape maintenance, stabilization and rehabilitation at Meridian Hill Park.</div>
+        <div class="meta">Incumbent TCG Property Care Inc. · $4,266,950 obligated · final end 2027-05-13 · Award 140D0426P0057</div>
+      </div>
+      <div class="row">
+        <div class="agency">Dept. of the Navy · Rhode Island</div>
+        <div class="left" data-end="2027-05-11">—<small>months left</small></div>
+        <div class="scope">Grounds maintenance and bioswale services.</div>
+        <div class="meta">Incumbent CW Resources, Inc. · $3,414,982 obligated · final end 2027-05-11 · Award N4008526F0928</div>
+      </div>
+      <div class="row">
+        <div class="agency">GSA Public Buildings Service · Washington, DC</div>
+        <div class="left" data-end="2027-05-14">—<small>months left</small></div>
+        <div class="scope">Custodial services at 1700 G St., Washington, DC.</div>
+        <div class="meta">Incumbent Didlake Inc · $1,826,973 obligated · final end 2027-05-14 · Award 47PF5126C0001</div>
+      </div>
+      <div class="ledger-foot">3 of 569 contracts this week with no options left, ending in 6–18 months. Source: USASpending.gov.</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What's in each Monday issue</h2>
+    <div class="issue">
+      <div><span class="step">Section 1</span><h3>Recompete radar</h3><p>Contracts ending in 6–18 months with no option years left: agency, state, incumbent, value and final end date.</p></div>
+      <div><span class="step">Section 2</span><h3>New bids</h3><p>Set-aside and open notices posted in the last 7 days, with set-aside type, place of performance and deadline.</p></div>
+      <div><span class="step">Section 3</span><h3>Closing soon</h3><p>Everything due in the next 10 days, with the deadline and time zone copied from the notice.</p></div>
+      <div><span class="step">Section 4</span><h3>Awards</h3><p>Who won what this week, for how much, and from which agency.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why contractors read it</h2>
+    <div class="why">
+      <p><b>Earlier than SAM.gov alerts</b>A saved search tells you when a solicitation posts. The radar shows the contract months before that, while there's still time to meet the contracting office.</p>
+      <p><b>Only your trade</b>Janitorial, custodial and grounds work only. No search tool to learn, no 400-line export to wade through.</p>
+      <p><b>Facts copied, not written</b>IDs, dates, deadlines and values come straight from the official records. A person reviews every issue before it goes out.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Plans</h2>
+    <div class="plans">
+      <div class="plan"><h3>Free</h3><div class="price">$0</div><ul><li>Top 5 items every Monday</li><li>Public recompete calendar (items older than 30 days)</li></ul></div>
+      <div class="plan feature"><span class="flag">First 25 subscribers</span><h3>Founding Pro</h3><div class="price">US$199<small>/yr</small></div><ul><li>Everything in Pro</li><li>Price locked while you stay subscribed</li></ul></div>
+      <div class="plan"><h3>Pro</h3><div class="price">US$39<small>/mo</small></div><ul><li>Full issue and mid-week alerts</li><li>Filters by state, agency, value, set-aside</li><li>Archive and CSV export</li><li>Or US$349/yr</li></ul></div>
+      <div class="plan"><h3>Team</h3><div class="price">US$899<small>/yr</small></div><ul><li>Up to 5 named users</li><li>For bid consultants and BD teams</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <div class="faq">
+      <div><h3>Where does the data come from?</h3><p>SAM.gov opportunities and USASpending.gov award records. Every item links to the official record.</p></div>
+      <div><h3>Do you use AI?</h3><p>Yes, to sort items and write the one-line summaries. Deadlines, values and dates are never written by AI.</p></div>
+      <div><h3>Can I cancel?</h3><p>Any time, from the billing link in any email. Paid plans have a 14-day full refund.</p></div>
+      <div><h3>Who runs it?</h3><p>Eden Michaels, an independent publisher in Queensland, Australia. Issues are reviewed on Monday evening Australian time, before the US workday starts.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Recompete Radar · Eden Michaels · ABN 78 354 306 287 · Queensland, Australia · admin@recompeteradar.app</div>
+    <div>Independent publication, not affiliated with the U.S. government, GSA, SAM.gov or USASpending.gov. General information only, not bidding advice. Verify every detail on the official record before acting.</div>
+    <div class="links"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#refunds">Refunds</a></div>
+  </footer>
+</div>
+
+<script>
+// Months left from today to each contract's final end date.
+(function () {
+  var now = new Date();
+  document.querySelectorAll('.left[data-end]').forEach(function (el) {
+    var end = new Date(el.getAttribute('data-end') + 'T00:00:00');
+    var m = (end.getFullYear() - now.getFullYear()) * 12 + (end.getMonth() - now.getMonth());
+    if (end.getDate() < now.getDate()) m -= 1;
+    el.firstChild.nodeValue = Math.max(m, 0);
+  });
+  // Draft only: the form is not connected to the newsletter service yet.
+  var form = document.getElementById('signup'), note = document.getElementById('formnote');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { note.className = 'formnote'; note.textContent = 'Enter a work email address, like bids@yourcompany.com.'; return; }
+    note.className = 'formnote ok';
+    note.textContent = 'Draft page: sign-up connects to the newsletter on launch day. Nothing was saved.';
+  });
+})();
+</script>
+
+</body>
+</html>
