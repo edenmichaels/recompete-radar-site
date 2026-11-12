@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Terms of service · Recompete Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field work-order sheet. Hi-vis stripe header, ledger of real expiring contracts as the hero, plain pricing grid. */
+:root {
+  --bg: #eef1ef;
+  --paper: #ffffff;
+  --ink: #16201d;
+  --muted: #5a6762;
+  --line: #d3dad6;
+  --hivis: #e2570f;
+  --grass: #2f6b3a;
+  --hivis-ink: #ffffff;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+    --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+  --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.stripe { height: 10px; background: repeating-linear-gradient(135deg, var(--hivis) 0 18px, var(--ink) 18px 36px); }
+header.top { padding-block: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { font: 800 22px/1 var(--display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; }
+.brand span { color: var(--hivis); }
+.tag { font: 500 12px/1 var(--mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: start; padding-block: 32px 56px; }
+.hero > * { min-width: 0; }
+h1 { font: 800 clamp(34px, 5.4vw, 58px)/1.02 var(--display); font-stretch: 70%; text-transform: uppercase; margin: 0 0 18px; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--hivis); }
+.lede { font-size: 18px; color: var(--muted); max-width: 34em; margin: 0 0 26px; }
+form.signup { display: flex; gap: 8px; flex-wrap: wrap; max-width: 30em; }
+form.signup input { flex: 1 1 220px; min-width: 0; font: inherit; padding: 12px 14px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 2px; }
+button, .btn { font: 700 15px/1 var(--display); font-stretch: 85%; letter-spacing: .04em; text-transform: uppercase; padding: 14px 18px; border: 2px solid var(--ink); background: var(--hivis); color: var(--hivis-ink); border-radius: 2px; cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--grass); outline-offset: 2px; }
+.formnote { font-size: 13px; color: var(--muted); margin: 10px 0 0; min-height: 1.4em; }
+.formnote.ok { color: var(--grass); font-weight: 600; }
+
+.ledger { background: var(--paper); border: 2px solid var(--ink); border-radius: 2px; }
+.ledger-head { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 2px solid var(--ink); font: 500 12px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.row { padding: 14px 16px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+.row:last-child { border-bottom: 0; }
+.row .agency { font-weight: 600; }
+.row .meta { grid-column: 1 / -1; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+.row .scope { grid-column: 1 / -1; font-size: 14px; }
+.left { font: 700 22px/1 var(--display); font-stretch: 75%; color: var(--hivis); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.left small { display: block; font: 500 11px/1.4 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.ledger-foot { padding: 10px 16px; font-size: 12px; color: var(--muted); border-top: 2px solid var(--ink); }
+
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+h2 { font: 800 30px/1.1 var(--display); font-stretch: 75%; text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
+.issue { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.issue div { border-top: 4px solid var(--ink); padding-top: 12px; }
+.issue h3 { font: 700 18px/1.2 var(--display); font-stretch: 85%; margin: 0 0 6px; }
+.issue p { margin: 0; color: var(--muted); font-size: 15px; }
+.step { font: 500 12px/1 var(--mono); color: var(--hivis); letter-spacing: .06em; }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.why p { margin: 0; }
+.why b { display: block; font-family: var(--display); font-stretch: 85%; font-size: 18px; margin-bottom: 4px; }
+
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.plan { background: var(--paper); border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column; gap: 10px; border-radius: 2px; }
+.plan.feature { border: 2px solid var(--hivis); }
+.plan h3 { font: 700 16px/1 var(--display); font-stretch: 85%; text-transform: uppercase; letter-spacing: .04em; margin: 0; }
+.price { font: 800 34px/1 var(--display); font-stretch: 75%; font-variant-numeric: tabular-nums; }
+.price small { font: 500 13px var(--body); color: var(--muted); }
+.plan ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+.flag { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--hivis); }
+
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.faq h3 { font: 600 17px/1.3 var(--body); margin: 0 0 6px; }
+.faq p { margin: 0; color: var(--muted); font-size: 15px; }
+
+footer { padding-block: 32px 48px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); display: grid; gap: 8px; }
+footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
+a { color: inherit; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .issue, .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why, .faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .issue, .plans { grid-template-columns: 1fr; }
+}
+</style><style>.doc{max-width:42rem;padding-block:24px 48px}.doc h1{font-size:clamp(30px,5vw,44px)}.doc h2{font-size:22px;margin:28px 0 8px}.doc p,.doc li{color:var(--ink)}.doc .updated{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}</style>
+</head><body>
+<div class="stripe" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top"><a href="/" class="brand" style="text-decoration:none">Recompete <span>Radar</span></a><div class="tag">Terms of service</div></header>
+<main class="doc"><h1>Terms of service</h1><p class="updated">Last updated 12 November 2026</p>
+<p><strong>Who we are.</strong> Recompete Radar is operated by Eden Michaels, a sole trader in Queensland, Australia (ABN 78 354 306 287). Contact: admin@recompeteradar.app.</p>
+<p><strong>The service.</strong> A weekly email digest and mid-week alerts about US federal contracting opportunities and expiring contracts in janitorial, custodial and grounds-maintenance services, with an online archive. It is compiled from public US government data (including SAM.gov and USASpending.gov), using automated tools and AI with human review.</p>
+<p><strong>No advice, no guarantee.</strong> The service is general information only. It is not legal, procurement, bidding, financial or business advice. It may be incomplete, delayed or contain errors. Always confirm details, deadlines and requirements on the official government source before acting. We don't guarantee that you will find, bid for or win any contract.</p>
+<p><strong>Plans and payment.</strong>
+- Free: weekly top items.
+- Pro: US$39 per month or US$349 per year.
+- Team (up to 5 named users in one organisation): US$899 per year.
+- Founding Pro: US$199 per year for the first 25 subscribers. The price stays the same for as long as the subscription renews without a break.</p>
+<p>Prices are in USD and charged through Stripe. Paid plans renew automatically at the end of each period until cancelled. We will email a reminder at least 14 days before any annual renewal.</p>
+<p><strong>Cancellation.</strong> Cancel at any time from the billing link in any email or by emailing admin@recompeteradar.app. Cancellation takes effect at the end of the current paid period. You keep access until then.</p>
+<p><strong>Refunds.</strong> See the refund policy below. Nothing in these terms excludes rights you have under the Australian Consumer Law or other laws that can't be excluded.</p>
+<p><strong>Your account.</strong> Pro is for one person. Team seats are for named staff of one organisation. Please don't forward full paid issues outside your organisation or resell the content.</p>
+<p><strong>Our content.</strong> We own the digest's selection, arrangement, summaries and formatting. The underlying government data is public. We link to official sources and don't re-host government documents.</p>
+<p><strong>Changes.</strong> We may change prices or features with at least 30 days' notice by email. Price changes apply from your next renewal. Founding prices are not changed while the subscription is continuous.</p>
+<p><strong>Liability.</strong> To the extent the law allows, our total liability for any claim related to the service is limited to the amount you paid in the 12 months before the claim. Where the Australian Consumer Law applies, our liability for failing to meet a consumer guarantee is limited, where permitted, to supplying the service again or refunding what you paid for it.</p>
+<p><strong>Law.</strong> These terms are governed by the laws of Queensland, Australia.</p>
+</main>
+<footer><div>Recompete Radar · Eden Michaels · ABN 78 354 306 287 · Queensland, Australia · admin@recompeteradar.app</div>
+<div class="links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/refunds.html">Refunds</a></div></footer>
+</div></body></html>

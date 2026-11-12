@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Refund policy · Recompete Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field work-order sheet. Hi-vis stripe header, ledger of real expiring contracts as the hero, plain pricing grid. */
+:root {
+  --bg: #eef1ef;
+  --paper: #ffffff;
+  --ink: #16201d;
+  --muted: #5a6762;
+  --line: #d3dad6;
+  --hivis: #e2570f;
+  --grass: #2f6b3a;
+  --hivis-ink: #ffffff;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+    --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111816; --paper: #18211e; --ink: #e6ece9; --muted: #9aa8a2; --line: #2c3834;
+  --hivis: #ff7a33; --grass: #6fbf7c; --hivis-ink: #1a0d05; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.stripe { height: 10px; background: repeating-linear-gradient(135deg, var(--hivis) 0 18px, var(--ink) 18px 36px); }
+header.top { padding-block: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand { font: 800 22px/1 var(--display); font-stretch: 75%; letter-spacing: .02em; text-transform: uppercase; }
+.brand span { color: var(--hivis); }
+.tag { font: 500 12px/1 var(--mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: start; padding-block: 32px 56px; }
+.hero > * { min-width: 0; }
+h1 { font: 800 clamp(34px, 5.4vw, 58px)/1.02 var(--display); font-stretch: 70%; text-transform: uppercase; margin: 0 0 18px; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--hivis); }
+.lede { font-size: 18px; color: var(--muted); max-width: 34em; margin: 0 0 26px; }
+form.signup { display: flex; gap: 8px; flex-wrap: wrap; max-width: 30em; }
+form.signup input { flex: 1 1 220px; min-width: 0; font: inherit; padding: 12px 14px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 2px; }
+button, .btn { font: 700 15px/1 var(--display); font-stretch: 85%; letter-spacing: .04em; text-transform: uppercase; padding: 14px 18px; border: 2px solid var(--ink); background: var(--hivis); color: var(--hivis-ink); border-radius: 2px; cursor: pointer; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--grass); outline-offset: 2px; }
+.formnote { font-size: 13px; color: var(--muted); margin: 10px 0 0; min-height: 1.4em; }
+.formnote.ok { color: var(--grass); font-weight: 600; }
+
+.ledger { background: var(--paper); border: 2px solid var(--ink); border-radius: 2px; }
+.ledger-head { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 2px solid var(--ink); font: 500 12px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.row { padding: 14px 16px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+.row:last-child { border-bottom: 0; }
+.row .agency { font-weight: 600; }
+.row .meta { grid-column: 1 / -1; font: 400 13px/1.5 var(--mono); color: var(--muted); }
+.row .scope { grid-column: 1 / -1; font-size: 14px; }
+.left { font: 700 22px/1 var(--display); font-stretch: 75%; color: var(--hivis); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.left small { display: block; font: 500 11px/1.4 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.ledger-foot { padding: 10px 16px; font-size: 12px; color: var(--muted); border-top: 2px solid var(--ink); }
+
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+h2 { font: 800 30px/1.1 var(--display); font-stretch: 75%; text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
+.issue { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.issue div { border-top: 4px solid var(--ink); padding-top: 12px; }
+.issue h3 { font: 700 18px/1.2 var(--display); font-stretch: 85%; margin: 0 0 6px; }
+.issue p { margin: 0; color: var(--muted); font-size: 15px; }
+.step { font: 500 12px/1 var(--mono); color: var(--hivis); letter-spacing: .06em; }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.why p { margin: 0; }
+.why b { display: block; font-family: var(--display); font-stretch: 85%; font-size: 18px; margin-bottom: 4px; }
+
+.plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.plan { background: var(--paper); border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column; gap: 10px; border-radius: 2px; }
+.plan.feature { border: 2px solid var(--hivis); }
+.plan h3 { font: 700 16px/1 var(--display); font-stretch: 85%; text-transform: uppercase; letter-spacing: .04em; margin: 0; }
+.price { font: 800 34px/1 var(--display); font-stretch: 75%; font-variant-numeric: tabular-nums; }
+.price small { font: 500 13px var(--body); color: var(--muted); }
+.plan ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+.flag { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--hivis); }
+
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.faq h3 { font: 600 17px/1.3 var(--body); margin: 0 0 6px; }
+.faq p { margin: 0; color: var(--muted); font-size: 15px; }
+
+footer { padding-block: 32px 48px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); display: grid; gap: 8px; }
+footer .links { display: flex; gap: 18px; flex-wrap: wrap; }
+a { color: inherit; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .issue, .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why, .faq { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .issue, .plans { grid-template-columns: 1fr; }
+}
+</style><style>.doc{max-width:42rem;padding-block:24px 48px}.doc h1{font-size:clamp(30px,5vw,44px)}.doc h2{font-size:22px;margin:28px 0 8px}.doc p,.doc li{color:var(--ink)}.doc .updated{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}</style>
+</head><body>
+<div class="stripe" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top"><a href="/" class="brand" style="text-decoration:none">Recompete <span>Radar</span></a><div class="tag">Refund policy</div></header>
+<main class="doc"><h1>Refund policy</h1><p class="updated">Last updated 12 November 2026</p>
+<ul>
+<li><strong>Monthly Pro:</strong> cancel any time; no charge for later months. If you're unhappy with your first paid month, email us within 14 days of payment for a full refund.</li>
+<li><strong>Annual plans (Pro, Team, Founding):</strong> full refund if you ask within 14 days of your first payment or of any annual renewal. After that, cancelling stops the next renewal, and no part-year refund is paid unless the law requires one.</li>
+<li><strong>Service problems:</strong> if we fail to deliver issues you paid for, or the service doesn't match its description, we'll fix it or refund the affected period, in line with the Australian Consumer Law.</li>
+<li><strong>How:</strong> email admin@recompeteradar.app from your subscribed address. Refunds go back to the original card through Stripe.</li>
+</ul>
+</main>
+<footer><div>Recompete Radar · Eden Michaels · ABN 78 354 306 287 · Queensland, Australia · admin@recompeteradar.app</div>
+<div class="links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/refunds.html">Refunds</a></div></footer>
+</div></body></html>
